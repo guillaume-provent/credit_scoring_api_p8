@@ -17,6 +17,7 @@ model_path = os.path.join(current_directory, "model.pkl")
 model = joblib.load(model_path)
 feature_names = model.named_steps['classifier'].feature_names_
 
+
 @app.route('/predict', methods=['POST'])
 def predict():
     # Récupération des données à partir de la requête :
@@ -54,12 +55,14 @@ def predict():
     shap_values = explainer(data)
 
     # Renvoi du résultat :
-    return jsonify(    
-        {'Dossier': result,
-        'Probabilite': round(proba, 3),
-        'Seuil': round(THRESHOLD, 3),
-        'Shapvals': shap_values.values.tolist(),
-        'Basevals': shap_values.base_values.tolist()}
+    return jsonify(
+        {
+            'Dossier': result,
+            'Probabilite': round(proba, 3),
+            'Seuil': round(THRESHOLD, 3),
+            'Shapvals': shap_values.values.tolist(),
+            'Basevals': shap_values.base_values.tolist()
+        }
     )
 
 
