@@ -19,10 +19,10 @@ feature_names = model.named_steps['classifier'].feature_names_
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    # Récupération de l'identifiant du client à partir de la requête :
+    # Récupération des données à partir de la requête :
     data_dict = request.json
 
-    # Remplir la liste avec les valeurs des features présentes dans les données JSON
+    # Extraction des données pour chaque feature du modèle :
     features_data = []
     for feature_name in feature_names:
         if feature_name in data_dict:
@@ -31,7 +31,7 @@ def predict():
             feature_value = np.NaN
         features_data.append(feature_value)
 
-    # Créer un DataFrame avec une seule ligne à partir des valeurs des features
+    # Création d'un DataFrame au format d'entrée du modèle :
     data = pd.DataFrame([features_data], columns=feature_names)
 
     # Prédiction :
