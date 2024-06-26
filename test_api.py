@@ -23,7 +23,7 @@ def test_model_loading():
 # Test de la prédiction :
 def test_predict_valid_id(client):
 
-    data = {'AMT_GOODS_PRICE': 100, 'AMT_ANNUITY': 20, 'AMT_CREDIT'=100}
+    data = {'AMT_GOODS_PRICE': 100, 'AMT_ANNUITY': 20, 'AMT_CREDIT': 100}
 
     response = client.post('/predict', json=data)
     json_data = response.get_json()
