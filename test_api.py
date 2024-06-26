@@ -1,7 +1,7 @@
 import pytest
 import joblib
 import pandas as pd
-from api import app, model_path, data_path
+from api import app, model_path
 
 
 # Configuration de pytest pour utiliser le client de test de Flask :
