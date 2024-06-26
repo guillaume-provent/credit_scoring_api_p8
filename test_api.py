@@ -1,6 +1,5 @@
 import pytest
 import joblib
-import pandas as pd
 from api import app, model_path
 
 
@@ -24,7 +23,6 @@ def test_model_loading():
 def test_predict_valid_id(client):
 
     data = {'AMT_GOODS_PRICE': 100, 'AMT_ANNUITY': 20, 'AMT_CREDIT': 100}
-
     response = client.post('/predict', json=data)
     json_data = response.get_json()
 
