@@ -7,7 +7,7 @@ import shap
 
 app = Flask(__name__)
 
-THRESHOLD = 0.6194837602241042
+THRESHOLD = 0.6358677596367461
 
 # Répertoire du fichier api.py :
 current_directory = os.path.dirname(os.path.abspath(__file__))
