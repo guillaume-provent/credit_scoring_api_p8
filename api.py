@@ -1,4 +1,3 @@
-import os
 from flask import Flask, request, jsonify
 import numpy as np
 import pandas as pd
@@ -9,12 +8,8 @@ app = Flask(__name__)
 
 THRESHOLD = 0.6358677596367461
 
-# Répertoire du fichier api.py :
-current_directory = os.path.dirname(os.path.abspath(__file__))
-
 # Chargement du modèle :
-model_path = os.path.join(current_directory, "model.pkl")
-model = joblib.load(model_path)
+model = joblib.load('model.pkl')
 feature_names = model.named_steps['classifier'].feature_names_
 
 
