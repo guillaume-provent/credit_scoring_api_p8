@@ -1,6 +1,6 @@
 import pytest
 import joblib
-from api import app, model_path
+from api import app
 
 
 # Configuration de pytest pour utiliser le client de test de Flask :
@@ -15,7 +15,7 @@ def client():
 # Test de chargement du modèle :
 def test_model_loading():
 
-    model = joblib.load(model_path)
+    model = joblib.load('model.pkl')
     assert model is not None
 
 
