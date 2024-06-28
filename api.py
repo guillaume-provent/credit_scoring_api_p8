@@ -36,9 +36,9 @@ def predict():
 
     # Verbalisation de la prédiction :
     if prediction == 0:
-        result = 'DOSSIER ACCEPTE'
+        result = 'ACCEPTATION DU DOSSIER'
     else:
-        result = 'DOSSIER REFUSE'
+        result = 'REFUS DU DOSSIER'
 
     # Extraction du classifier du modèle :
     classifier = model.named_steps['classifier']
